@@ -15,9 +15,9 @@ var color = new THREE.Color();
 
 for ( var i = 0; i < particles; i ++ ) {
 
-    positions.push( ( Math.random() * 2 - 1 ) * radius );
-    positions.push( ( Math.random() * 1  - .1 ) * radius );
-    positions.push( ( Math.random() * 2 - 1 ) * radius );
+    positions.push( ( Math.random() * 2 - 1 ) * radius * 3 );
+    positions.push( ( Math.random() * 1  + .5 ) * radius );
+    positions.push( ( Math.random() * 2 - 1 ) * radius  * 3 );
     ids.push( i );
 
     color.setHSL( i / particles, 1.0, 0.5 );
