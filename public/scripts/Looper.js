@@ -4,7 +4,7 @@
     this.controller = controller;
     this.params = _.defaults( params || {}, {
         
-      beatsPerMinute:     130 * 4,
+      beatsPerMinute:     105 * 4,
       beatsPerMeasure:      16,
       beatType:             16,
       measuresPerLoop:      4, // number of measures in loop
@@ -56,7 +56,7 @@
     this.controller.addToUpdateArray( this._update.bind( this ) );
 
 
-    window.addEventListener('focus', this.ResetTime.bind(this));
+ 
   }
 
   Looper.prototype._update = function(){

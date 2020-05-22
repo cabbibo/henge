@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Desert Monolith </title>
+  <title> H E N G E </title>
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon"> 
 </head>
 <body>
   
@@ -12,8 +13,7 @@
       
     </div>
     <div id = "startButton">
-      Desert Monolith : 
-      Lil Data x Cabbibo
+      H E N G E   ||   Lil Data x Cabbibo
     </div>
   </div>
   
@@ -161,7 +161,8 @@
     
     G.audio.mute.gain.value = 0.8
     
-
+    window.addEventListener('blur', function(){ clock.stop(); } );
+    window.addEventListener('focus', function(){ clock.start(); });
   </script>
 
 </body>

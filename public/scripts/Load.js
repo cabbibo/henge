@@ -6,7 +6,25 @@ function LoadItAll(){
   })
 
 
-  loadAudio("lonely","resources/lonely.mp3")
+
+  loadAudio("loop1","https://jarm.imfast.io/henge/loops/1.mp3")
+  loadAudio("loop2","https://jarm.imfast.io/henge/loops/2.mp3")
+  loadAudio("loop3","https://jarm.imfast.io/henge/loops/3.mp3")
+  loadAudio("loop4","https://jarm.imfast.io/henge/loops/4.mp3")
+  loadAudio("loop5","https://jarm.imfast.io/henge/loops/5.mp3")
+  //loadAudio("loop3","https://jarm.imfast.io/henge/loops/3.mp3")
+  //loadAudio("loop4","https://jarm.imfast.io/henge/loops/4.mp3")
+  //loadAudio("loop5","https://jarm.imfast.io/henge/loops/5.mp3")
+  //loadAudio("loop6","https://jarm.imfast.io/henge/loops/6.mp3")
+  //loadAudio("loop7","https://jarm.imfast.io/henge/loops/7.mp3")
+//
+//
+  //loadAudio("sample1","https://jarm.imfast.io/henge/samples/1.mp3")
+  //loadAudio("sample2","https://jarm.imfast.io/henge/samples/2.mp3")
+  //loadAudio("sample3","https://jarm.imfast.io/henge/samples/3.mp3")
+  //loadAudio("sample4","https://jarm.imfast.io/henge/samples/4.mp3")
+  //loadAudio("sample5","https://jarm.imfast.io/henge/samples/5.mp3")
+
   loadAudio("kick","resources/Kick 008 Vinyl.wav")
   loadAudio("clap","resources/Clap 005.wav")
   loadAudio("snare","resources/Snare 007.wav")
@@ -206,7 +224,7 @@ function onLoad(){
   
   if( neededToLoad == loaded ){
     startButtonDiv.style.display ="block";
-    startItAll();
+    //startItAll();
     
   }
 }

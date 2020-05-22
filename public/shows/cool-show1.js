@@ -44,12 +44,7 @@ function MakeCoolShow1() {
 
 
 
-  var loops = [
 
-    G.audio.buffers.lonely.buffer,
-
-  ]
-  
 
 
   var globeRad = .6;
@@ -169,14 +164,13 @@ function MakeCoolShow1() {
   */
   var loops = [
 
-    G.audio.buffers.lonely.buffer,
-    G.audio.buffers.lonely.buffer,
-    G.audio.buffers.lonely.buffer,
-    G.audio.buffers.lonely.buffer,
-    G.audio.buffers.lonely.buffer,
-    G.audio.buffers.lonely.buffer,
-    G.audio.buffers.lonely.buffer,
-    G.audio.buffers.lonely.buffer,
+    G.audio.buffers.loop1.buffer,
+    G.audio.buffers.loop2.buffer,
+    G.audio.buffers.loop3.buffer,
+    G.audio.buffers.loop4.buffer,
+    G.audio.buffers.loop5.buffer,
+    G.audio.buffers.loop3.buffer,
+    G.audio.buffers.loop1.buffer,
 
   ]
 
