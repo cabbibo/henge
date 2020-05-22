@@ -12,14 +12,14 @@ function AudioController(){
   this.gain     = this.ctx.createGain();
   reverbjs.extend(this.ctx);
 
-   var reverbUrl = "http://reverbjs.org/Library/ElvedenHallMarbleHall.m4a";
+   var reverbUrl = "/resources/ElvedenHallMarbleHall.m4a";
   this.reverbBig = this.ctx.createReverbFromUrl(reverbUrl, function() {
     this.reverbBig.connect(this.gain);
   }.bind(this));
 
 
 
-  var reverbUrl = "http://reverbjs.org/Library/InsidePiano.m4a";
+  var reverbUrl = "/resources/InsidePiano.m4a";
   this.reverbSmall = this.ctx.createReverbFromUrl(reverbUrl, function() {
     this.reverbSmall.connect(this.gain);
   }.bind(this));
@@ -33,7 +33,7 @@ function AudioController(){
   G.freeverb = new Tone.Freeverb(10,100);
   G.freeverb.connect( this.gain );
 
-  var reverbUrl = "http://reverbjs.org/Library/ElvedenHallSmokingRoom.m4a";
+  var reverbUrl = "/resources/ElvedenHallSmokingRoom.m4a";
   this.reverb = this.ctx.createReverbFromUrl(reverbUrl, function() {
     this.reverb.connect(this.gain);
   }.bind(this));
