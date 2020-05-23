@@ -9,7 +9,7 @@ function Snake( id, note , reverb , color ){
 
   this.oPos = new THREE.Vector3();
   
-  
+  this.lastTimeOff = 0;
 
   
   var offMat = new THREE.MeshStandardMaterial({
@@ -142,9 +142,33 @@ Snake.prototype.nextNoteHighlight = function(){
 
 Snake.prototype.update = function(){
   
+  var t = G.uniforms.time.value;
 
+  if( t  - this.lastTimeOff > 10 ){
+    this.lastTimeOff = t;
+    var total = 0;
+    var sects = [];
+    for( var i = 0; i < this.sections.length; i++ ){
 
-  
+        if( this.sections[i].active == true ){
+          sects[total] = this.sections[i];
+          total ++;
+        }
+    }
+
+    if( total > 0 ){
+      var s = sects[ Math.floor( Math.random() * total )];
+      console.log("THIS IS MEEEEE");
+      console.log( s );
+      s.hoverOver();
+      s.select();
+      s.deselect();
+      
+
+    }
+
+  }
+
  
   if( this.head.selected ){
   
