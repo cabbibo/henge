@@ -29,7 +29,7 @@ void main(){
   
   vec3 col = mix( sem.xyz,vec3(0.,0.,0.), min(1.,.1*length(vEye)));
  //col = aCol.xyz;
-  col = aCol.xyz * aCol.xyz * col * 20. * c_secondaryColor.xyz;
+  col = aCol.xyz * aCol.xyz;// * col * 20. * c_secondaryColor.xyz;
   //colc = vec3(1.);
   // vec4 audio = texture2D( t_audio , vec2( lamb , 0. ));
   gl_FragColor = vec4( col , 1. );

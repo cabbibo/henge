@@ -42,6 +42,8 @@ function User(data) {
   this.geo = new THREE.BoxGeometry(1, 1, 1);
   this.mat = new THREE.MeshNormalMaterial();
   
+
+  console.log( parseInt(this.id));
   this.uniforms = {
     dT:       G.uniforms.dt,
     time:     G.uniforms.time,
@@ -49,13 +51,15 @@ function User(data) {
     t_matcap: G.uniforms.t_matcap,
     t_normal: G.uniforms.t_normal,
     c_primaryColor: {type:"c",value:new THREE.Color(0xffff00)},
-  c_secondaryColor: {type:"c",value:new THREE.Color(0x00ff00)}
+  c_secondaryColor: {type:"c",value:new THREE.Color(0x00ff00)},
+    id: { type:"f", value: parseInt(this.id) * .3}
 
   }
 
   this.bodyMat = new THREE.ShaderMaterial({
     vertexShader: G.shaders.vs.face,
     fragmentShader: G.shaders.fs.face,
+    blending: THREE.AdditiveBlending,
     uniforms: this.uniforms
   });
   
@@ -72,14 +76,14 @@ function User(data) {
   this.cameraRep = new THREE.Object3D();
   
     
-var geometry = new THREE.ConeGeometry( .14, .14, 4,1 );
+var geometry = new THREE.IcosahedronGeometry( .2,2 );
 var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
 
   this.body = new THREE.Mesh(this.geo,material);
   this.eyeL = new THREE.Mesh(this.geo, this.eyeMat);
   this.eyeR = new THREE.Mesh(this.geo, this.eyeMat);
 
-this.cone = new THREE.Mesh( geometry, material );
+this.cone = new THREE.Mesh( geometry, this.bodyMat );
   this.cone.rotation.x = Math.PI/2;
   this.cone.position.z = .4;
   this.cone.rotation.y = Math.PI/4;
@@ -87,7 +91,7 @@ this.cone = new THREE.Mesh( geometry, material );
 
 this.body.scale.set( .2 , .2 , .3);
 
-  this.mouseRep = new THREE.Mesh(this.geo, this.mat);
+  this.mouseRep = new THREE.Mesh(this.geo, this.bodyMat);
 
   // dont add representations IF its ourselves!
   if (this.id == SERVER.myID) {

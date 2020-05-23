@@ -42,7 +42,7 @@ function MakeCoolShow1() {
 
 
   var globeRad = .6;
-  var globePos = new THREE.Vector3( 0.1 , 1.6, .1);
+  var globePos = new THREE.Vector3( 0.1 , 2.3, .1);
 
 
 
@@ -76,7 +76,8 @@ function MakeCoolShow1() {
   tree.position.x = 0;
   tree.position.z = 0;
   tree.position.y = -3;
-  tree.scale.multiplyScalar( 2 );
+ 
+  tree.scale.multiplyScalar( 1.5 );
 
   light = new THREE.PointLight(0xffaa44);
   light.intensity = 2;
@@ -160,11 +161,11 @@ function MakeCoolShow1() {
   for( var i = 0; i < stage.numSliders; i++ ){
     var name = "slider" + (i+1);
     var a = (i / stage.numSliders) * 2 * Math.PI;
-    var r = 5;
+    var r = 8;
     var pos = new Vector3(Math.sin(a),0,-Math.cos(a));
     
     pos.multiplyScalar(r);
-    G[name] = MakeBasicVerticalSlider(i, name , sliderHolder, 1,2.5, pos, .061)  
+    G[name] = MakeBasicVerticalSlider(i, name , sliderHolder, 1,3, pos, .061)  
     G[name].Add();
     
     G[name].mesh.rotation.y = -a;

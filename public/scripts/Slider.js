@@ -32,7 +32,7 @@ MakeBasicVerticalSlider = function(id,name, parentObj, minHeight, maxHeight,star
   
   
   var handle = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(0.6, 3),
+    new THREE.IcosahedronGeometry(0.8, 3),
     handleMaterial
   );
   
@@ -44,7 +44,8 @@ MakeBasicVerticalSlider = function(id,name, parentObj, minHeight, maxHeight,star
     rodMaterial
   );
   
-  sliderRep.scale.set( 1.2, maxHeight + 1, .4);
+  sliderRep.scale.set( 1.7, maxHeight + 1, .6);
+  //sliderRep.scale.multiplyScalar(1.4);
   
   handle.add(sliderRep);
 
@@ -152,9 +153,8 @@ Slider.onDeselect = function(){
 
   Slider.receiveData = function(data) {
 
-    console.log("receving");
   
-    if( data.type == 'first data'){console.log("first data babay")}
+    if( data.type == 'first data'){}
     
     this.mesh.position.copy(data.position);
     
@@ -169,7 +169,6 @@ Slider.onDeselect = function(){
     this.value = data.value;
     
     if(data.type == "hoverOver"){
-      console.log("HOVER OVER");
       this.onHoverOver();
     }
   

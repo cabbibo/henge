@@ -243,8 +243,8 @@ function onLoad(){
   
   if( neededToLoad == loaded ){
     startButtonDiv.style.display ="block";
-    //startItAll();
-    //G.audio.mute.gain.value = 0;
+    startItAll();
+    G.audio.mute.gain.value = 0;
   }
 }
 
