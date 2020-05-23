@@ -1,6 +1,15 @@
 uniform sampler2D t_audio;
 uniform float time;
 
+
+uniform float slider1;
+uniform float slider2;
+uniform float slider3;
+uniform float slider4;
+uniform float slider5;
+uniform float slider6;
+uniform float slider7;
+
 varying vec3 vNorm;
 varying vec2 vUv;
 varying vec3 vPos;
@@ -11,8 +20,10 @@ $simplex
 
 
 vec3 map( vec3 pos ){
-  
-  return vec3(pos.x , pos.y , 0.) +  vec3(0.,0.,1.) * (snoise(pos.xy * .1)+length(pos.xy) * length( pos.xy) * .01 + .1*sin(time + 10.*length( pos.xy)) / (.4 + length( pos.xy)));
+
+
+  float r = length( pos.xy );
+  return vec3(pos.x , pos.y , 0.) +   vec3(0.,0.,slider2 * .4+ .4) * (snoise(pos.xyz * .2 * (.5 +slider1*.5) + vec3(0.,0.,time * .3 * slider7))+length(pos.xy) * length( pos.xy ) * .03 * (slider3-.5) + .8*slider5*sin(time * slider6 + slider4 *4.*length( pos.xy)) / (.4 + length( pos.xy)));
 
 }
 

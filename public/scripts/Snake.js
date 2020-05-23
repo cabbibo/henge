@@ -176,15 +176,15 @@ Snake.prototype.update = function(){
 
 
 Snake.prototype.getHeadPosition = function(){
-  var t = G.uniforms.time.value * .13;
+  var t = G.uniforms.time.value * .17;
 
   var v = (this.id / 5) * 2 * Math.PI 
 
-  var angle = t + v;
+  var angle = t + v + Math.sin( (this.id+5) * G.uniforms.time.value * .3) * .1;
 
   var x = Math.sin( angle ) * 3.5  ;
   var y = Math.cos( angle ) * 3.5;
-  var z = 2  + 1.5 * Math.sin( v + G.uniforms.time.value * .1) + .5 * Math.sin( angle * 4 * (Math.sin(v * 10)+1.5) );
+  var z = 2  + 1.5 * Math.sin( v * 3 + G.uniforms.time.value * .1) + .5 * Math.sin( angle * 4 * (Math.sin(v * 10)+1.5) );
 
   return new THREE.Vector3( x , z,y);
 }

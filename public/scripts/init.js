@@ -36,15 +36,15 @@ function init(){
 				//controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
 
 				controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
-				controls.dampingFactor = 0.05;
-
+				controls.dampingFactor = 0.03;
+        controls.zoomSpeed = 3;
 				controls.screenSpacePanning = false;
 
-				controls.minDistance = 1;
+				controls.minDistance = 3;
 				controls.maxDistance = 15;
 
 				controls.maxPolarAngle = Math.PI / 2 -.1;				
-  controls.minPolarAngle =  Math.PI / 2 - .4;
+  controls.minPolarAngle =  Math.PI / 2 - .8;
   
   camera.position.z = 10
 

@@ -10,18 +10,12 @@ function MakeCoolShow1() {
   }
 
 
-
-  var goldMaterial = new THREE.ShaderMaterial({
-    vertexShader: G.shaders.vs.gold,
-    fragmentShader: G.shaders.fs.gold,
-    uniforms: G.uniforms
-  });
   var treeMat = new THREE.MeshStandardMaterial({
-    color:0xffffff,
+    color:0xffeeee,
     normalMap: G.uniforms.t_normal.value,
    // metalnessMap : G.textures.vertabraeMetallic,
     metalness:1,
-    roughness:.1,
+    roughness:0.3,
     envMap: G.textures.cubemap,
    // map: G.textures.vertabraeAlbedo,
   
@@ -35,7 +29,7 @@ function MakeCoolShow1() {
   var centerMaterial = new THREE.ShaderMaterial({
     vertexShader: G.shaders.vs.pulseOrb,
     fragmentShader: G.shaders.fs.pulseOrb,
-    uniforms: stage.uniforms
+    uniforms: G.uniforms
   });
   
   
@@ -83,7 +77,11 @@ function MakeCoolShow1() {
   tree.position.z = 0;
   tree.position.y = -3;
   tree.scale.multiplyScalar( 2 );
-  
+
+  light = new THREE.PointLight(0xffaa44);
+  light.intensity = 2;
+  stage.add(light);
+  light.position.copy( globePos );
 
   scene.add( tree );
 
@@ -98,29 +96,15 @@ function MakeCoolShow1() {
   tree.add(sphere);
   }
 
-  /*
-  var numOf = 20;
-  for( var i = 0; i < 20; i++){
-    var centerPiece = new THREE.Mesh(
-      centerGeo,
-      centerMaterial
-    );
-    centerPiece.rotation.z = (.25+(i/numOf )) * 2 * Math.PI;
-    centerPiece.rotation.x = (.25+(i/numOf )) * 2 * Math.PI;
-    centerPiece.position.x = 3*i/numOf-1.5;
-    centerPiece.position.y = Math.random() - .5;///3*i/numOf-1.5;
 
-    centerPiece.scale.x = i/numOf + .5;    
-    centerPiece.scale.y = i/numOf + .5;
-    centerPiece.scale.z = i/numOf + .5;
-
-    stage.add(centerPiece);
-
-  }  
-  
-  */
   
   
+
+  var goldMaterial = new THREE.ShaderMaterial({
+    vertexShader: G.shaders.vs.gold,
+    fragmentShader: G.shaders.fs.gold,
+    uniforms: G.uniforms
+  });
   
   var geo = new THREE.PlaneGeometry(35, 35, 100,100);
 
@@ -128,10 +112,6 @@ function MakeCoolShow1() {
   floor.position.set(0, -2, 0);
   floor.rotation.x = -Math.PI/2;
   
-  
-
-
-
   
 
   stage.add(floor);
@@ -192,6 +172,7 @@ function MakeCoolShow1() {
     G[name].mesh.rotation.z = Math.random() * .3 - .15;
 
     G.uniforms[name] = { type:"f",value:0}
+    G.uniforms[name+"pos"] = { type:"v3", value:G[name].mesh.position }
 
     stage.uniforms[name] = G.uniforms[name];
 
@@ -277,22 +258,23 @@ function MakeCoolShow1() {
   stage.granSynth.LinkSlider("playbackVolumeRandomness", G.slider10 , 0,1)*/
 
   
- light = new THREE.PointLight(0xffffff);
- light.intensity = 4;
- stage.add(light);
-
-
- light = new THREE.DirectionalLight(0xffffff);
- light.intensity = 2;
- stage.add(light);
 
 
 
 
+
+/*
+
+
+
+Particles
+
+*/
  var particlesMaterial = new THREE.ShaderMaterial({
   vertexShader: G.shaders.vs.particles,
   fragmentShader: G.shaders.fs.particles,
-  uniforms: stage.uniforms,
+  uniforms: G.uniforms,
+  blending:THREE.AdditiveBlending,
   
   vertexColors: true
 });
@@ -331,6 +313,7 @@ function MakeCoolShow1() {
   stage.start = function(){
 
    //// this.granSynth.start();
+   this.looper._onNewLoop();
   }
 
 

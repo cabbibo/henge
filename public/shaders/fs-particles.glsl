@@ -16,6 +16,8 @@ uniform sampler2D pointTexture;
 		col.xyz = texture2D(t_audio, vec2((( sin( vID )+1.)/2.) * .4 + l * .4 , 0. )).xyz;
 
 
+	col *= vec3( sin(vID) * .1 + .9 , sin(vID * 3.) * .1 + .6 , sin(vID * .5) * .1 + .4);
+
 				gl_FragColor = vec4( col, 1.0 );
 
 
