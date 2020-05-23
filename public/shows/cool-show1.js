@@ -169,8 +169,8 @@ function MakeCoolShow1() {
     G.audio.buffers.loop3.buffer,
     G.audio.buffers.loop4.buffer,
     G.audio.buffers.loop5.buffer,
-    G.audio.buffers.loop3.buffer,
-    G.audio.buffers.loop1.buffer,
+    G.audio.buffers.loop6.buffer,
+    G.audio.buffers.loop7.buffer,
 
   ]
 
@@ -188,6 +188,8 @@ function MakeCoolShow1() {
     G[name].Add();
     
     G[name].mesh.rotation.y = -a;
+    G[name].mesh.rotation.x = Math.random() * .3 - .15;
+    G[name].mesh.rotation.z = Math.random() * .3 - .15;
 
     G.uniforms[name] = { type:"f",value:0}
 
@@ -223,6 +225,7 @@ function MakeCoolShow1() {
   var buffers = [
     G.audio.buffers.kick.buffer,
     G.audio.buffers.clap.buffer,
+    G.audio.buffers.hihat.buffer,
     G.audio.buffers.hihat.buffer,
     G.audio.buffers.snare.buffer
   ]

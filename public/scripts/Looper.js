@@ -7,7 +7,7 @@
       beatsPerMinute:     105 * 4,
       beatsPerMeasure:      16,
       beatType:             16,
-      measuresPerLoop:      4, // number of measures in loop
+      measuresPerLoop:      8, // number of measures in loop
 
     });
 

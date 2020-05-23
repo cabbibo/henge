@@ -7,11 +7,14 @@ function LoadItAll(){
 
 
 
-  loadAudio("loop1","https://jarm.imfast.io/henge/loops/1.mp3")
-  loadAudio("loop2","https://jarm.imfast.io/henge/loops/2.mp3")
-  loadAudio("loop3","https://jarm.imfast.io/henge/loops/3.mp3")
-  loadAudio("loop4","https://jarm.imfast.io/henge/loops/4.mp3")
-  loadAudio("loop5","https://jarm.imfast.io/henge/loops/5.mp3")
+  loadAudio("loop1","https://jarm.imfast.io/henge/loops8/1.mp3")
+  loadAudio("loop2","https://jarm.imfast.io/henge/loops8/2.mp3")
+  loadAudio("loop3","https://jarm.imfast.io/henge/loops8/3.mp3")
+  loadAudio("loop4","https://jarm.imfast.io/henge/loops8/4.mp3")
+  loadAudio("loop5","https://jarm.imfast.io/henge/loops8/5.mp3")
+  loadAudio("loop6","https://jarm.imfast.io/henge/loops8/6.mp3")
+  loadAudio("loop7","https://jarm.imfast.io/henge/loops8/7.mp3")
+  loadAudio("loop8","https://jarm.imfast.io/henge/loops8/8.mp3")
   //loadAudio("loop3","https://jarm.imfast.io/henge/loops/3.mp3")
   //loadAudio("loop4","https://jarm.imfast.io/henge/loops/4.mp3")
   //loadAudio("loop5","https://jarm.imfast.io/henge/loops/5.mp3")

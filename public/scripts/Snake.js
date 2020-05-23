@@ -58,7 +58,7 @@ function Snake( id, note , reverb , color ){
 
   scene.add(m);
 
-  m.scale.set(.4 , .4 , .4)
+  m.scale.set(.2 , .2 , .2)
 
   
 
@@ -84,7 +84,7 @@ function Snake( id, note , reverb , color ){
 
     var s = 1-(i / this.numSections)
    // m.scale.set(s,s,s);
-    var s = .3;//-(i / this.numSections)
+    var s = .15;//-(i / this.numSections)
     vert.scale.set( s,s,s );
     vert.oScale = vert.scale.clone();
     vert.add(m);
@@ -109,7 +109,7 @@ function Snake( id, note , reverb , color ){
     this.sections[i].onHoverOver = function(){
       this.vert.material = hoverOverMat
       this.vert.materialNeedsUpdate = true;
-      this.vert.scale.set(.4,.4,.4);
+      this.vert.scale.set(.2,.2,.2);
     }.bind( this.sections[i] );
 
   this.sections[i].onHoverOut = function(){
@@ -137,7 +137,7 @@ Snake.prototype.nextNoteHighlight = function(){
   this.currentNote ++;
   this.currentNote %= this.sections.length;
   if( this.sections[this.currentNote].active){ this.audio.play(); }
-  this.sections[this.currentNote].vert.scale.set(.4,.4,.4);
+  this.sections[this.currentNote].vert.scale.set(.2,.2,.2);
 }
 
 Snake.prototype.update = function(){
@@ -176,15 +176,15 @@ Snake.prototype.update = function(){
 
 
 Snake.prototype.getHeadPosition = function(){
-  var t = G.uniforms.time.value * .2;
+  var t = G.uniforms.time.value * .13;
 
-  var v = (this.id / 4) * 2 * Math.PI 
+  var v = (this.id / 5) * 2 * Math.PI 
 
   var angle = t + v;
 
-  var x = Math.sin( angle ) * 7  ;
-  var y = Math.cos( angle ) * 7;
-  var z = 5 + Math.sin( angle * 3 * (Math.sin(v * 10)+2) );
+  var x = Math.sin( angle ) * 3.5  ;
+  var y = Math.cos( angle ) * 3.5;
+  var z = 2  + 1.5 * Math.sin( v + G.uniforms.time.value * .1) + .5 * Math.sin( angle * 4 * (Math.sin(v * 10)+1.5) );
 
   return new THREE.Vector3( x , z,y);
 }
