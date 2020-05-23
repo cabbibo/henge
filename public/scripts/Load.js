@@ -25,6 +25,22 @@ function LoadItAll(){
   //loadAudio("sample4","https://jarm.imfast.io/henge/samples/4.mp3")
   //loadAudio("sample5","https://jarm.imfast.io/henge/samples/5.mp3")
 
+  let ch2pc_total_samples = 77
+  for (var i = 0; i < ch2pc_total_samples; i++) {
+    if (i<9)
+      loadAudio('ch2pc_'+i, "https://jarm.imfast.io/henge/samples/ch2pc/ch2_percussion_0"+(i+1)+".wav.mp3")
+    else
+      loadAudio('ch2pc_'+i, "https://jarm.imfast.io/henge/samples/ch2pc/ch2_percussion_"+(i+1)+".wav.mp3")
+  }
+
+  let k2tecroom_total_samples = 13
+  for (var i = 0; i < k2tecroom_total_samples; i++) {
+    if (i<9)
+      loadAudio('ch2pc_'+i, "https://jarm.imfast.io/henge/samples/k2tecroom/k2_techno_room_0"+(i+1)+".mp3")
+    else
+      loadAudio('ch2pc_'+i, "https://jarm.imfast.io/henge/samples/k2tecroom/k2_techno_room_"+(i+1)+".mp3")
+  }
+
   loadAudio("kick","resources/Kick 008 Vinyl.wav")
   loadAudio("clap","resources/Clap 005.wav")
   loadAudio("snare","resources/Snare 007.wav")

@@ -227,17 +227,29 @@ function MakeCoolShow1() {
     G.audio.buffers.snare.buffer
   ]
 
+  let buffers_ch2pc = Object.values(G.audio.buffers).filter(i => i.file.substring(37,42) === 'ch2pc')
+  let buffers_k2tecroom = Object.values(G.audio.buffers).filter(i => i.file.substring(37,42) === 'k2tec')
+  randInt = (max) => {return Math.floor(Math.random() * Math.floor(max));}
+
+  // window.buffers_ch2pc = buffers_ch2pc
+  // console.log('buffers_ch2pc', buffers_ch2pc, buffers_ch2pc[randInt(buffers_ch2pc.length-1)])
+
+
   var colors = [
     0xffeeaa,
     0xffbbdd,
     0xaaffee,
-    0xaaddff
+    0xaaddff,
+    0xccbbee
   ]
 
   stage.snakes = [];
   for( var i = 0; i < buffers.length; i++ ){
-    stage.snakes[i] = new Snake( i , buffers[i] , G.audio.reverbSmall , colors[i] );
-
+    // stage.snakes[i] = new Snake( i , buffers[i] , G.audio.reverbSmall , colors[i] );
+    if (i<3)
+      stage.snakes[i] = new Snake( i , buffers_ch2pc[randInt(buffers_ch2pc.length-1)].buffer , G.audio.reverbSmall , colors[i] );
+    else
+      stage.snakes[i] = new Snake( i , buffers_k2tecroom[randInt(buffers_k2tecroom.length-1)].buffer , G.audio.reverbSmall , colors[i] );
 
     stage.looper.addEveryNote( function(){
       this.nextNoteHighlight();
@@ -245,6 +257,7 @@ function MakeCoolShow1() {
   
   }
 
+  // https://jarm.imfast.io/henge/samples/ch2pc
 
 /*
   stage.granSynth = new GranSynth( G.audio.buffers.lonely.buffer , G.audio.ctx , G.audio.gain , false );
